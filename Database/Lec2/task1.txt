@@ -1,0 +1,54 @@
+CREATE TABLE Doctor(
+  ID NUMBER(10) NOT NULL UNIQUE,
+  NAME VARCHAR2(255) NOT NULL,
+  SALARY NUMBER,
+  ADDRESS VARCHAR2(500)
+);
+
+----------------------------------------------
+
+INSERT INTO Doctor(ID, NAME, SALARY, ADDRESS) VALUES (1, "Ahmed", 7000, "Cairo");
+INSERT INTO Doctor(NAME, ID, SALARY, ADDRESS) VALUES ("Mohamed", 2, 8000, "Alex");
+INSERT INTO Doctor VALUES (3, "Samy Ahmed", 1000, "Suez");
+INSERT INTO Doctor VALUES (4, "Nader", 10000, "Matroh");
+INSERT INTO Doctor VALUES (5, "Hala Nagy", 2000, "Cairo");
+INSERT INTO Doctor VALUES (6, "Ahmed", 12000, "Cairo");
+INSERT INTO Doctor VALUES (7, "Nesma", 13000, "Alex");
+INSERT INTO Doctor VALUES (8, "Reem", 3000, "Alex");
+INSERT INTO Doctor VALUES (9, "Khloud", 15000, "Cairo");
+INSERT INTO Doctor VALUES (10, "Tamer", 16000, "Suez");
+
+-------------------------------------------------
+
+UPDATE Doctor
+SET SALARY=2000
+WHERE ID=3;
+
+COMMIT;
+
+-------------------------------------------------
+
+DELETE FROM Doctor
+WHERE ID = 9;
+
+-------------------------------------------------
+
+SELECT NAME || SALARY
+FROM Doctor as NAME_WITH_SALARY;
+
+--------------------------------------------------
+
+SELECT ID, NAME, SALARY*2, ADDRESS
+FROM Doctor;
+
+----------------------------------------------------
+
+SELECT *
+FROM Doctor
+WHERE SALARY IN(1000, 2000, 3000);
+
+---------------------------------------------------
+
+ALTER TABLE Doctor
+RENAME TO PRD_DOCTOR;
+
